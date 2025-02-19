@@ -1,5 +1,4 @@
 import { IKVideo } from "imagekitio-next"
-import Link from "next/link"
 import { IVideos } from "@/models/Video.model"
 
 export default function VideoComponent({ video }: { video: IVideos }) {

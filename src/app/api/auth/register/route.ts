@@ -31,9 +31,15 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     )
   } catch (error) {
+    if (error instanceof Error) {
+      return NextResponse.json(
+        { error: "Failed To Register User", details: error.message },
+        { status: 500 }
+      );
+    }
     return NextResponse.json(
-      { error: "Failed To Register User" },
+      { error: "Failed To Register User", details: "An unknown error occurred" },
       { status: 500 }
-    )
+    );
   }
 }

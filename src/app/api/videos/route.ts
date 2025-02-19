@@ -3,7 +3,6 @@ import { getServerSession } from "next-auth/next"
 import { authOptions } from "@/lib/options"
 import { connectToDatabase } from "@/lib/dbConfig"
 import Video, { IVideos } from "@/models/Video.model"
-
 export async function GET() {
   try {
     await connectToDatabase()

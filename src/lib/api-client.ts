@@ -2,16 +2,16 @@ import { IVideos } from "@/models/Video.model"
 
 export type VideoFormData = Omit<IVideos, "_id">
 
-type FetchOptions = {
+type FetchOptions<T = unknown> = {
   method?: "GET" | "POST" | "PUT" | "DELETE"
-  body?: any
+  body?: T
   headers?: Record<string, string>
 }
 
 class ApiClient {
-  private async fetch<T>(
+  private async fetch<T, U = unknown>(
     endpoint: string,
-    options: FetchOptions = {}
+    options: FetchOptions<U> = {}
   ): Promise<T> {
     const { method = "GET", body, headers = {} } = options
 
